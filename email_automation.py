@@ -8,7 +8,7 @@ import time
 from datetime import datetime
 
 
-path = r"C:\Users\sandilya_garimella\Documents\Projects\DirecTV\output\test2"
+path = r"C:\Users\User\Documents\Email Files"
 
 # code to read only unread emails.
 def save_file(messages,path):
@@ -52,7 +52,7 @@ def extract_latest_file_and_push_to_DB():
             df_file.to_excel(f"{path}\Output{file_date}.xlsx")
             
 main()
-# extract_latest_file_and_push_to_DB()
+extract_latest_file_and_push_to_DB()
 
 
 
