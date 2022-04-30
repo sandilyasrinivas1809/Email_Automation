@@ -15,10 +15,14 @@ def save_file(messages,path):
     for message in messages:
         if message.Unread:
             attachments = message.Attachments
+            sender_email_address =  message.SenderEmailAddress
+            email_subject = message.Subject
             for attachment in attachments:
                 print(attachment.FileName)
                 print(type(attachment.FileName))
-                if ".xlsx" in attachment.FileName:  
+                print("Please enter the attachment extension you want to save:")
+                attachment_extension = str(input())
+                if attachment_extension in attachment.FileName:  
                     attachment.SaveAsFile(os.path.join(path, str(attachment)))
                     print(f"attachment {attachment.FileName} saved")
                 else:
