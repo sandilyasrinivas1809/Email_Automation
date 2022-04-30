@@ -18,8 +18,9 @@ def save_file(messages,path):
             sender_email_address =  message.SenderEmailAddress
             email_subject = message.Subject
             for attachment in attachments:
-                print(attachment.FileName)
-                print(type(attachment.FileName))
+                print(f"The attachment in the email is {attachment.FileName}")
+                print(f"The Email address of the sender is {sender_email_address}")                
+                print(f"The Subject of the email is {email_subject}")                
                 print("Please enter the attachment extension you want to save:")
                 attachment_extension = str(input())
                 if attachment_extension in attachment.FileName:  
@@ -57,7 +58,7 @@ def extract_latest_file_and_push_to_DB():
             df_file.to_excel(f"{path}\Output{file_date}.xlsx")
             
 main()
-extract_latest_file_and_push_to_DB()
+# extract_latest_file_and_push_to_DB()
 
 
 
