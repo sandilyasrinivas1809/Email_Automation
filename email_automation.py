@@ -17,13 +17,18 @@ def save_file(messages,path):
             attachments = message.Attachments
             sender_email_address =  message.SenderEmailAddress
             email_subject = message.Subject
+            email_body = message.Body
+            print(f"The Email address of the sender is '{sender_email_address}'")                
+            print(f"The Subject of the email is '{email_subject}'")    
+            print(f"The body of the email is: \n{email_body}\n")                
             for attachment in attachments:
                 print(f"The attachment in the email is {attachment.FileName}")
-                print(f"The Email address of the sender is {sender_email_address}")                
-                print(f"The Subject of the email is {email_subject}")                
-                print("Please enter the attachment extension you want to save:")
-                attachment_extension = str(input())
-                if attachment_extension in attachment.FileName:  
+                file =  attachment.FileName
+                file_extension = file.split(".")[1]
+                print(f"The file extension is {file_extension}")
+                print("Please enter 'yes' if you want to save the attachment")
+                user_inp = str(input())
+                if user_inp == "yes":
                     attachment.SaveAsFile(os.path.join(path, str(attachment)))
                     print(f"attachment {attachment.FileName} saved")
                 else:
@@ -38,7 +43,6 @@ def main():
     # messages = messages.Restrict("[SenderEmailAddress] = ' '") #TODO: Filter based on sender if required
     messages = inbox.Items
     save_file(messages,path)
-    print ("Sucessfully saved the file")
 
 
 def extract_latest_file_and_push_to_DB():
