@@ -39,6 +39,7 @@ def main():
 def extract_latest_file_and_push_to_DB():
     arr = os.listdir(path)
     # latest_date = datetime.now().strftime("%Y%m%d")
+    #trying to exctarct only the latest file based on the timestamp given in the file
     latest_date = "20220329"
     for i in arr:
         name = i.split("_")[1]
