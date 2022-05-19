@@ -20,8 +20,10 @@ def save_file(messages,path):
             email_body = message.Body
             print(f"The Email address of the sender is '{sender_email_address}'")                
             print(f"The Subject of the email is '{email_subject}'")    
-            print(f"The body of the email is: \n{email_body}\n")                
+            print(f"The body of the email is: \n{email_body}\n")    
+            count = 0            
             for attachment in attachments:
+                count +=1
                 print(f"The attachment in the email is {attachment.FileName}")
                 file =  attachment.FileName
                 file_extension = file.split(".")[1]
@@ -33,6 +35,7 @@ def save_file(messages,path):
                     print(f"attachment {attachment.FileName} saved")
                 else:
                     print("We do not want to save other attachments")
+            print(f"The number of attachments are {count}")
             if message.Unread:
                 message.Unread = False
             break
