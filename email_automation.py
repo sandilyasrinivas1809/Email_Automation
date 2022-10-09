@@ -7,7 +7,7 @@ import os
 import time
 from datetime import datetime
 
-
+#TEST
 path = r"C:\Users\User\Documents\Email Files"
 
 # code to read only unread emails.
